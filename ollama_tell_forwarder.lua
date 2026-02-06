@@ -1,4 +1,3 @@
--- Run in MacroQuest with: /lua run ollama_tell_forwarder
 local mq = require('mq')
 local ImGui = require('ImGui')
 
@@ -34,7 +33,9 @@ end
 
 local function save_config(config)
   local file = assert(io.open(config_path, 'w'))
-  file:write(string.format('{\n  ollama_ip = %q,\n}\n', config.ollama_ip or '127.0.0.1'))
+  file:write(string.format('{
+  ollama_ip = %q,
+}\n', config.ollama_ip or '127.0.0.1'))
   file:close()
 end
 
